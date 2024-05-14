@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Entitys.Entity.Kayit>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<h4>Kayit</h4>
+<hr />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Musteri ID
+            </th>
+            <th>
+                Oda ID
+            </th>
+            <th>
+                Giris Tarih
+            </th>
+            <th>
+                Cikis Tarih
+            </th>
+            <th>
+                Fiyat
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.musteriID
+                </td>
+                <td>
+                    @item.odaID
+                </td>
+                <td>
+                    @item.girisTarih
+                </td>
+                <td>
+                    @item.cikisTarih
+                </td>
+                <td>
+                    @item.fiyat
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.kayitID">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@item.kayitID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

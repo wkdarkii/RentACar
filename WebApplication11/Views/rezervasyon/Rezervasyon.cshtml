@@ -1,0 +1,62 @@
+﻿@model WebApplication11.Models.RezervasyonViewModel
+
+@{
+    ViewData["Title"] = "Rezervasyon";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Rezervasyon</h1>
+
+<h4>Kayit</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <dl class="row">
+            <dt class="col-sm-4">Oda Türü:</dt>
+            <dd class="col-sm-8">@Model.Oda.OdaTur.ad</dd>
+
+            <dt class="col-sm-4">Oda Numarası:</dt>
+            <dd class="col-sm-8">@Model.Oda.odaNo</dd>
+
+            <dt class="col-sm-4">Günlük Fiyat:</dt>
+            <dd class="col-sm-8">@Model.Oda.gunlukFiyat</dd>
+        </dl>
+        <form asp-action="Rezervasyon">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="MusteriAd" class="control-label"></label>
+                <input asp-for="MusteriAd" class="form-control" />
+                <span asp-validation-for="MusteriAd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MusteriSoyad" class="control-label"></label>
+                <input asp-for="MusteriSoyad" class="form-control" />
+                <span asp-validation-for="MusteriSoyad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Telefon" class="control-label"></label>
+                <input asp-for="Telefon" class="form-control" />
+                <span asp-validation-for="Telefon" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="girisTarih" class="control-label"></label>
+                <input asp-for="girisTarih" class="form-control" />
+                <span asp-validation-for="girisTarih" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="cikisTarih" class="control-label"></label>
+                <input asp-for="cikisTarih" class="form-control" />
+                <span asp-validation-for="cikisTarih" class="text-danger"></span>
+            </div>
+            <input type="hidden" name="odaID" value="@Model.Oda.odaID" />
+            <div class="form-group">
+                <input type="submit" href="" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
